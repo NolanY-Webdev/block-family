@@ -132,7 +132,9 @@ color: $whiteish;
 
    @media #{$medium}{
   background-color: $whiteish;
-  width: 600px;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 450px;
  };
 
  @media #{$large}{
