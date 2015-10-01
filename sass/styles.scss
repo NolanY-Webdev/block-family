@@ -1,9 +1,70 @@
 // Resets, Clearfix, etc
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* clearfix hax */
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
 
 // Variables
- 
-// Media Query Ranges 
- 
+$whiteish: #EEEEEE;
+$blackish: #212121;
+
+// Media Query Ranges
+$medium: 'only screen and (min-width: 601px) and (max-width: 768px)';
+$large: 'only screen and (min-width: 768px)';
 // Mixins
 
 // Styles
@@ -11,28 +72,71 @@ body{
   background-color: orange;
   text-align: center;
   color: #EEE;
+
+  @media #{$large}{
+    background-color: $blackish;
+  }
 }
- 
+
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
 }
- 
+
 h1{
   padding: 20px;
+  color: $blackish;
+  font-size:55px;
+
+  @media #{$medium}{
+    color: $whiteish;
+  };
+
+  @media #{$large}{
+    color: orange;
+  }
 }
- 
+
 h2{
- 
+color: $whiteish;
+
+  @media #{$medium}{
+    color: orange;
+  };
+
+  @media #{$large}{
+    color: $blackish;
+  }
 }
- 
- 
+
+
 .block_family{
-  max-width:350px;
+  font-size: 40px;
+  width:350px;
   margin:auto;
+
+ @media #{$medium}{
+  color: $whiteish;
+  width: 600px;
+ };
+
+ @media #{$large}{
+  color: #71EF23;
+  width: 768px;
+ };
 }
- 
+
 .block_family li{
   background-color: #222;
   margin-bottom: 20px;
   padding: 20px;
+
+   @media #{$medium}{
+  background-color: $whiteish;
+  width: 600px;
+ };
+
+ @media #{$large}{
+  background-color: orange;
+  width: 768px;
+ };
 }
